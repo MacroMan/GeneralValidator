@@ -21,21 +21,6 @@ class LengthValidator extends Validator {
 		$this->checkProperties();
 	}
 
-	public function validate(string $value) {
-		if (strlen($value) < $this->min) {
-			$this->error = "String shorter than min length {$this->min}";
-			return false;
-		}
-
-		if (strlen($value) > $this->max) {
-			$this->error = "String longer than max length {$this->max}";
-			return false;
-		}
-
-		$this->error = null;
-		return true;
-	}
-
 	private function checkProperties() {
 		if ($this->min === null) {
 			throw new Exception("Property min is not set on class LengthValidator");
@@ -52,6 +37,21 @@ class LengthValidator extends Validator {
 		if ($this->min > $this->max) {
 			throw new Exception("Property min is greater than property max on class LengthValidator");
 		}
+	}
+
+	public function validate(string $value) {
+		if (strlen($value) < $this->min) {
+			$this->error = "String shorter than min length {$this->min}";
+			return false;
+		}
+
+		if (strlen($value) > $this->max) {
+			$this->error = "String longer than max length {$this->max}";
+			return false;
+		}
+
+		$this->error = null;
+		return true;
 	}
 
 }
