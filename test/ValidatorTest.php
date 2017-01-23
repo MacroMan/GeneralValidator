@@ -3,8 +3,6 @@
 spl_autoload_register(function ($class) {
 	$dirs = array(
 		'Validators',
-		'ZxcvbnPhp',
-		'ZxcvbnPhp/Matchers',
 	);
 	foreach ($dirs as $dir) {
 		if (file_exists("$dir/$class.php")) {
@@ -12,6 +10,8 @@ spl_autoload_register(function ($class) {
 		}
 	}
 });
+
+require __DIR__ . '/../vendor/autoload.php';
 
 class ValidatorTest extends PHPUnit_Framework_TestCase {
 
@@ -135,6 +135,17 @@ class ValidatorTest extends PHPUnit_Framework_TestCase {
 		$validator->setMinScore(4);
 		$this->assertTrue($validator->validate("gUY3Geyab@Sw")); // 4
 		$this->assertFalse($validator->validate("m?sWu4re")); // 3
+	}
+
+	public function testLoad() {
+		$this->assertTrue(EmailValidator::load()->validate("prettyandsimple@example.com"));
+		$this->assertFalse(EmailValidator::load()->validate("Abc.example.com"));
+
+		$this->assertTrue(UrlValidator::load()->validate("ftp://ftp.is.co.za.example.org/rfc/rfc1808.txt"));
+		$this->assertFalse(UrlValidator::load()->validate("tel:+1-816-555-1212"));
+
+		$this->assertTrue(CountryCodeValidator::load()->validate("DM"));
+		$this->assertFalse(CountryCodeValidator::load()->validate("UX"));
 	}
 
 }

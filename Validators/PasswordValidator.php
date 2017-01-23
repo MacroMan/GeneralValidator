@@ -24,7 +24,7 @@ class PasswordValidator extends Validator {
 	}
 
 	public function validate(string $password) {
-		$zxcvbn = new Zxcvbn();
+		$zxcvbn = new \ZxcvbnPhp\Zxcvbn();
 		$strength = $zxcvbn->passwordStrength($password);
 		$this->value = $strength['score'];
 

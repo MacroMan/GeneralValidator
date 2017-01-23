@@ -1,14 +1,17 @@
 <?php
 
-class Validator {
+abstract class Validator {
 
 	protected $error;
 	protected $value;
 
-	public function validate(string $value) {
+	abstract public function validate(string $value);
 
-	}
-
+	/**
+	 * Quick loader to avoid using new keyworld for simple validation
+	 * Example: For the email validator, only the string arg is required: EmailValidator::load()->validate("me@example.com")
+	 * @return static Validator
+	 */
 	public static function load() {
 		return new static;
 	}

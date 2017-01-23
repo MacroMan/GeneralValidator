@@ -1,0 +1,16 @@
+{
+	"name": "MacroMan/GenralValidator",
+	"version": "0.1.0",
+	"type": "library",
+	"description": "General string validation. Currently Email address, string length, password, url and country code validation. Easily extendable with others.",
+	"license": [
+		"BSD-2"
+	],
+	"require": {
+		"php": "^5.3 || ^7.0",
+		"bjeavons/zxcvbn-php": "^0.3"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "*"
+	}
+}
