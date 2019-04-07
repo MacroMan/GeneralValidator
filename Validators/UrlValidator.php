@@ -1,5 +1,7 @@
 <?php
 
+namespace MacroMan\GenralValidator;
+
 class UrlValidator extends Validator {
 
 	public function validate(string $url) {

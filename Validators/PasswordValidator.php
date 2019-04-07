@@ -1,5 +1,7 @@
 <?php
 
+namespace MacroMan\GenralValidator;
+
 class PasswordValidator extends Validator {
 
 	private $minScore = null;

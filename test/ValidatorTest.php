@@ -1,19 +1,15 @@
 <?php
 
-spl_autoload_register(function ($class) {
-	$dirs = array(
-		'Validators',
-	);
-	foreach ($dirs as $dir) {
-		if (file_exists("$dir/$class.php")) {
-			include "$dir/$class.php";
-		}
-	}
-});
+namespace MacroMan\GenralValidator\Tests;
 
-require __DIR__ . '/../vendor/autoload.php';
+use PHPUnit\Framework\TestCase;
+use MacroMan\GenralValidator\EmailValidator;
+use MacroMan\GenralValidator\UrlValidator;
+use MacroMan\GenralValidator\CountryCodeValidator;
+use MacroMan\GenralValidator\LengthValidator;
+use MacroMan\GenralValidator\PasswordValidator;
 
-class ValidatorTest extends PHPUnit_Framework_TestCase {
+class ValidatorTest extends TestCase {
 
 	public function testEmail() {
 		$validator = new EmailValidator();
