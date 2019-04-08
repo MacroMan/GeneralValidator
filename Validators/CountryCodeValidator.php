@@ -1,5 +1,7 @@
 <?php
 
+namespace MacroMan\GenralValidator;
+
 class CountryCodeValidator extends Validator {
 
 	// For lack of a database, declaring all ISO country codes as a private property

@@ -1,5 +1,7 @@
 <?php
 
+namespace MacroMan\GenralValidator;
+
 abstract class Validator {
 
 	protected $error;

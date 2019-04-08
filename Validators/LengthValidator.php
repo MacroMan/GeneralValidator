@@ -1,5 +1,7 @@
 <?php
 
+namespace MacroMan\GenralValidator;
+
 class LengthValidator extends Validator {
 
 	private $min = null;

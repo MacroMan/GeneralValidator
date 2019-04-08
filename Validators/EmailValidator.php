@@ -1,5 +1,7 @@
 <?php
 
+namespace MacroMan\GenralValidator;
+
 class EmailValidator extends Validator {
 
 	public function validate(string $address) {
